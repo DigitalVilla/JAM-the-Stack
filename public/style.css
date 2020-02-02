@@ -11,3 +11,10 @@ main {
 	max-width: 90vw;
 	width: 600px;
 }
+
+.card {
+	background: rgb(233, 233, 233);
+	padding: 6px 1rem;
+	border-radius: 6px;
+	margin-bottom: 2rem;
+}
