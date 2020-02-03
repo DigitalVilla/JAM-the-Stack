@@ -46,3 +46,32 @@ textarea {
 	color: #fff;
 	margin-left: auto;
 }
+
+.modal {
+	display: flex;
+	align-items: center;
+	border-radius: 0.25rem;
+	padding: 0 2rem;
+	border: 2px solid rgba(0, 157, 248, 1);
+	background: rgba(0, 157, 248, 0.5);
+	margin-bottom: 2rem;
+}
+
+.success {
+	background: rgba(0, 185, 114, 0.5);
+	border-color: rgba(0, 185, 114, 1);
+}
+
+.error {
+	background: rgba(250, 54, 71, 0.5);
+	border-color: rgba(250, 54, 71, 1);
+}
+
+.warning {
+	background: rgba(247, 200, 48, 0.5);
+	border-color: rgba(247, 200, 48, 1);
+}
+
+.divider {
+	margin: 0 1rem;
+}

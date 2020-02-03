@@ -5,14 +5,19 @@ const INIT_STATE = {
 	name: '',
 	email: '',
 	subject: '',
-	body: ''
+	body: '',
+	status: 'IDLE'
 }
 
 const reducer = (state, action) => {
 	switch (action.type) {
 		case 'updateFieldValue':
 			return { ...state, [action.field]: action.value };
-			default:
+
+		case 'updateStatus':
+			return { ...state, status: action.status };
+
+		default:
 			return INIT_STATE;
 	}
 }
@@ -36,14 +41,29 @@ const Form = () => {
 		//TODO: send Message
 	}
 
+	let msg = state.status === 'SUCCESS' ? 'Message Sent' : 'Try again later';
+
 	return (
 		<form className={styles.form} onSubmit={handleSubmit}>
+			{ state.status !== "IDLE" &&
+				<Message status={state.status} message={msg}/>
+			}
 			<Field name="name" state={state} onChange={updateFieldValue}/>
 			<Field name="email" type="email" state={state} onChange={updateFieldValue}/>
 			<Field name="subject" state={state} onChange={updateFieldValue}/>
 			<Field name="body" field="textarea" state={state} onChange={updateFieldValue}/>
 			<button className={styles.button}>Send</button>
 		</form>
+	)
+}
+
+const Message = (props) => {
+	return (
+		<div className={`${styles.modal} ${styles[props.status.toLowerCase()]}`}>
+			<p><strong>Status :</strong> {props.status}</p>
+			<span className={styles.divider}>|</span>
+			<p><strong>Message :</strong> {props.message}</p>
+		</div>
 	)
 }
 
