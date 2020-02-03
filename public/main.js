@@ -21,6 +21,7 @@ const listRepos = async username => {
 	if (content.children.length === 0) content.innerHTML = '';
 
 	const card = document.createElement('div');
+	card.classList.add('card');
 	card.innerHTML = `<h3>${username}</h3><ul>${markup}</ul>`;
 	content.appendChild(card);
 }
