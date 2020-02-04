@@ -17,6 +17,7 @@ const reducer = (state, action) => {
 		case 'updateStatus':
 			return { ...state, status: action.status };
 
+		case 'resetForm':
 		default:
 			return INIT_STATE;
 	}
@@ -26,6 +27,7 @@ const Form = () => {
 	const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
 	const updateFieldValue = field => event => {
+		state.status !== 'PENDING' &&
 		dispatch({
 			type: 'updateFieldValue',
 			value: event.target.value,
@@ -33,36 +35,36 @@ const Form = () => {
 		})
 	}
 
+	const setStatus = status => dispatch({ type: 'updateStatus', status: status });
+	const resetForm = () => dispatch({type: 'resetForm'});
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(state);
 
-
+		setStatus('PENDING')
+		setTimeout(() => setStatus('SUCCESS'), 2000);
 		//TODO: send Message
 	}
 
-	let msg = state.status === 'SUCCESS' ? 'Message Sent' : 'Try again later';
-
-	return (
-		<form className={styles.form} onSubmit={handleSubmit}>
-			{ state.status !== "IDLE" &&
-				<Message status={state.status} message={msg}/>
-			}
-			<Field name="name" state={state} onChange={updateFieldValue}/>
-			<Field name="email" type="email" state={state} onChange={updateFieldValue}/>
-			<Field name="subject" state={state} onChange={updateFieldValue}/>
-			<Field name="body" field="textarea" state={state} onChange={updateFieldValue}/>
-			<button className={styles.button}>Send</button>
-		</form>
-	)
+	return state.status === 'SUCCESS' ? (<Message status={state.status} close={resetForm}/>) :
+	(<form className={`${styles.form} ${state.status === 'PENDING' && styles.pending}`} onSubmit={handleSubmit}>
+		{ state.status !== "IDLE" && state.status !== "PENDING" && <Message status={state.status}/> }
+		<Field name="name" state={state} onChange={updateFieldValue}/>
+		<Field name="email" type="email" state={state} onChange={updateFieldValue}/>
+		<Field name="subject" state={state} onChange={updateFieldValue}/>
+		<Field name="body" field="textarea" state={state} onChange={updateFieldValue}/>
+		<button className={styles.button}>Send</button>
+	</form>);
 }
 
 const Message = (props) => {
+	const message = props.status === 'SUCCESS' ? 'Message Sent' : 'Try again later';
 	return (
 		<div className={`${styles.modal} ${styles[props.status.toLowerCase()]}`}>
+			{props.close && <button onClick={props.close}>X</button> }
 			<p><strong>Status :</strong> {props.status}</p>
 			<span className={styles.divider}>|</span>
-			<p><strong>Message :</strong> {props.message}</p>
+			<p><strong>Message :</strong> {message}</p>
 		</div>
 	)
 }

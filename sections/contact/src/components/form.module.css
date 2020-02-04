@@ -1,3 +1,14 @@
+@keyframes loading {
+	from {
+		opacity: 1;
+		transform: scale(0.001);
+	}
+	to {
+		opacity: 0;
+		transform: scale(1);
+	}
+}
+
 .form {
 	border: 1px solid #ddd;
 	border-radius: 0.25rem;
@@ -5,6 +16,36 @@
 	margin: 0.75rem auto 0;
 	max-width: 500px;
 	padding: 2rem;
+}
+
+
+.form.pending {
+	position: relative;
+	user-select: none;
+	transition: all .2s
+}
+
+.pending::before {
+	content: "";
+	position: absolute;
+	background: rgba(255, 255, 255, 0.432);
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.pending::after {
+	animation: loading .8s infinite ease-out;
+	content: "";
+	position: absolute;
+	background: radial-gradient(rgba(0, 89, 131, 0.1), rgba(0, 139, 139, 0.9));
+	width: 6rem;
+	height: 6rem;
+	top: calc(50% - 3rem);
+	left: calc(50% - 3rem);
+	border-radius: 50%;
+
 }
 
 .label,
