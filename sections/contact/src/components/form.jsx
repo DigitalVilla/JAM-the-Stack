@@ -41,9 +41,13 @@ const Form = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		setStatus('PENDING')
-		setTimeout(() => setStatus('SUCCESS'), 2000);
-		//TODO: send Message
+		fetch('/api/contact', {
+			method: 'post',
+			body: JSON.stringify(state)
+		})
+		.then(res => res.json())
+		.then(res => { console.log(res);
+		 setStatus(res.status)})
 	}
 
 	return state.status === 'SUCCESS' ? (<Message status={state.status} close={resetForm}/>) :
