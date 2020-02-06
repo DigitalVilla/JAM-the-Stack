@@ -1,14 +1,22 @@
 {
-  "name": "jamstack-intro",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/DigitalVilla/JamStack-Dev-.git",
-  "author": "Digital Villa <digitalvilla01@gmail.com>",
-  "license": "MIT",
-  "dependencies": {
-    "gatsby": "^2.17.1",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-	"@hot-loader/react-dom": "^16.10.2"
-  }
+	"name": "jamstack-intro",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "https://github.com/DigitalVilla/JamStack-Dev-.git",
+	"author": "Digital Villa <digitalvilla01@gmail.com>",
+	"license": "MIT",
+	"dependencies": {
+		"@hot-loader/react-dom": "^16.10.2",
+		"@reach/dialog": "^0.8.0",
+		"@reach/tabs": "^0.8.0",
+		"@reach/visually-hidden": "^0.8.0",
+		"gatsby": "^2.17.1",
+		"react": "^16.10.2",
+		"react-dom": "^16.10.2",
+		"react-netlify-identity": "^0.2.3",
+		"react-netlify-identity-widget": "^0.2.7"
+	},
+	"scripts": {
+		"build": "gatsby build"
+	}
 }
