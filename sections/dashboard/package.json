@@ -6,8 +6,9 @@
   "author": "Digital Villa <digitalvilla01@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "gatsby": "^2.19.12",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "gatsby": "^2.17.1",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+	"@hot-loader/react-dom": "^16.10.2"
   }
 }
