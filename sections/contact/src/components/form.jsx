@@ -48,6 +48,7 @@ const Form = () => {
 		.then(res => res.json())
 		.then(res => { console.log(res);
 		 setStatus(res.status)})
+		 .catch(err => setStatus('ERROR'))
 	}
 
 	return state.status === 'SUCCESS' ? (<Message status={state.status} close={resetForm}/>) :

@@ -1,0 +1,13 @@
+{
+  "name": "jamstack-intro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/DigitalVilla/JamStack-Dev-.git",
+  "author": "Digital Villa <digitalvilla01@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "gatsby": "^2.19.12",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
