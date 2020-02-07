@@ -4,8 +4,8 @@ import Layout from "../components/Layout.jsx";
 
 export default () => (
 	<Layout>
-		<h1>JAMstack Rules!</h1>
-		<p>Log in to find out why</p>
+		<h1>Campaign Manager</h1>
+		<p>JAMstack Server-less Authentication!</p>
 		<Link to="/dashboard">Go to Dashboard</Link>
 	</Layout>
   )

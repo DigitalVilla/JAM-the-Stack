@@ -26,6 +26,22 @@ main {
   width: 90vw;
 }
 
+footer  {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	background: rgb(194, 194, 194);
+	color: #0e0e0e;
+	padding: .7rem;
+	font-size: 0.8em;
+}
+
+body {
+	height: 100vh;
+}
+
 .dashboard-header {
   align-items: baseline;
   background: #ddd;

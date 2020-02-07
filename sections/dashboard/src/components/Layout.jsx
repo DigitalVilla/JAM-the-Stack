@@ -7,7 +7,7 @@ const Layout = ({children}) => {
 	return (
 		<IdentityContextProvider url="https://jamthestack-auth.netlify.com">
 			<header>
-				<Link to="/">JAMstack App</Link>
+				<Link to="/">JAMstack</Link>
 			</header>
 			<main>{children}</main>
 		</IdentityContextProvider>

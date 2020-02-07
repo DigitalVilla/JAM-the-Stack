@@ -2,9 +2,10 @@ import React from 'react'
 
 const Secret = () => {
   return (
-	<h1>
-		Super Secret Stuff!
-	</h1>
+	  <>
+		<h1> Secret:</h1>
+		<h2> Keep your keys hidden from source code </h2>
+	  </>
   )
 }
 

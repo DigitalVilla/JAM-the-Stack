@@ -3,9 +3,11 @@ import { navigate } from "gatsby";
 import IdentityModal from "react-netlify-identity-widget";
 import { Router } from "@reach/router";
 import Layout from "../components/Layout.jsx";
-import Profile from '../components/Profile.jsx'
-import Base from "../routes/Base.jsx";
+import Private from "../routes/Private.jsx";
+import Profile from "../components/Profile.jsx";
 import Secret from "../routes/Secret.jsx";
+import Identity from "../routes/Identity.jsx";
+import Manager from "../routes/Manager.jsx";
 import Login from "../routes/Login.jsx";
 
 import 'react-netlify-identity-widget/styles.css';
@@ -24,10 +26,11 @@ const Dashboard = ({ location }) => {
 
 	return (
 		<Layout>
-			<Profile />
+			<Profile showModal={showModal} />
 			<Router>
-				<Base path='/dashboard/base' />
-				<Secret path='/dashboard/secret' />
+				<Private path='/dashboard/secret' component={Secret}/>
+				<Private path='/dashboard/identity' component={Identity}/>
+				<Private path='/dashboard/manager' component={Manager}/>
 				<Login path='/dashboard/login' showModal={showModal} />
 			</Router>
 			<IdentityModal
@@ -35,7 +38,7 @@ const Dashboard = ({ location }) => {
 				onCloseDialog={showModal}
 			/>
 
-			<p>TODO: Create Dashboard</p>
+			<footer> © Digital Villa. All Rights Reserved </footer>
 		</Layout>
 	)
 }
